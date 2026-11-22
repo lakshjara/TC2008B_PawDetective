@@ -888,6 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GestorPartida
   meta: 3
+  tiempoRestante: 90
 --- !u!4 &1151426474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635138348341928478, guid: 5d13a5cd3b0e7422d840b68649ab9322, type: 3}
