@@ -5,12 +5,15 @@ public class MovimientoJugador : MonoBehaviour
 {
     public float velocidad = 5f;
     private Rigidbody rb;
+    private Animator animator;
     private Vector3 movimiento;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // evita que se voltee
+        // buscar el animator del personaje
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -19,6 +22,9 @@ public class MovimientoJugador : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         movimiento = new Vector3(x, 0f, z).normalized;
+        // cambiar la animacion segun el movimiento
+        if (animator != null)
+            animator.SetFloat("velocidad", movimiento.magnitude);
     }
 
     void FixedUpdate()
