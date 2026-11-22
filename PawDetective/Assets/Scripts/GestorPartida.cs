@@ -25,4 +25,13 @@ public class GestorPartida : MonoBehaviour
             Debug.Log("¡Encontraste todas las mascotas!");
         }
     }
+
+    public void Ganar()
+    {
+        // evitar que la partida termine dos veces
+        if (terminada) return;
+
+        terminada = true;
+        Debug.Log("¡Ganaste!");
+    }
 }
