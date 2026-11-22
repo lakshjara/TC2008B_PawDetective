@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GestorPartida : MonoBehaviour
 {
     public int meta = 3;
     public float tiempoRestante = 90f;
+    // textos que se muestran en la pantalla
+    public TextMeshProUGUI petsText;
+    public TextMeshProUGUI timeText;
     private bool tiempoAgotado = false;
     private int rescatadas = 0;
     private bool terminada = false;
@@ -20,6 +24,9 @@ public class GestorPartida : MonoBehaviour
         if (!terminada)
         {
             tiempoRestante -= Time.deltaTime;
+            // mostrar los segundos que quedan
+            if (timeText != null)
+                timeText.text = "Tiempo: " + Mathf.CeilToInt(tiempoRestante);
 
             // comprobar si se termino el tiempo
             if (tiempoRestante <= 0)
@@ -36,6 +43,9 @@ public class GestorPartida : MonoBehaviour
         if (terminada) return;
 
         rescatadas++;
+        // actualizar las mascotas encontradas en pantalla
+        if (petsText != null)
+            petsText.text = "Mascotas: " + rescatadas + "/" + meta;
 
         Debug.Log("Mascotas encontradas: " + rescatadas + " de " + meta);
 
