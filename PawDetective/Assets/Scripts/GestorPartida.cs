@@ -15,6 +15,7 @@ public class GestorPartida : MonoBehaviour
     private bool tiempoAgotado = false;
     private int rescatadas = 0;
     private bool terminada = false;
+    private bool iniciada = false;
 
     public bool MisionCumplida
     {
@@ -24,7 +25,7 @@ public class GestorPartida : MonoBehaviour
     void Update()
     {
         // descontar el tiempo mientras la partida siga activa
-        if (!terminada)
+        if (iniciada && !terminada)
         {
             tiempoRestante -= Time.deltaTime;
             // mostrar los segundos que quedan
@@ -39,6 +40,12 @@ public class GestorPartida : MonoBehaviour
                 Perder();
             }
         }
+    }
+
+    public void IniciarPartida()
+    {
+        // comenzar la partida al presionar jugar
+        iniciada = true;
     }
 
     public void Rescatar()
