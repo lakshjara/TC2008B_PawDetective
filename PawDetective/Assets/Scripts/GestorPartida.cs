@@ -70,6 +70,9 @@ public class GestorPartida : MonoBehaviour
             winText.SetActive(true);
 
         Debug.Log("¡Ganaste!");
+        
+        // reiniciar la partida despues de 3 segundos
+        Invoke("Reiniciar", 3f);
     }
 
     public void Perder()
