@@ -22,9 +22,17 @@ public class MovimientoJugador : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         movimiento = new Vector3(x, 0f, z).normalized;
+        
         // cambiar la animacion segun el movimiento
         if (animator != null)
             animator.SetFloat("velocidad", movimiento.magnitude);
+        
+        // girar hacia donde camina el personaje
+        if (movimiento.sqrMagnitude > 0.01f)
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                Quaternion.LookRotation(movimiento),
+                12f * Time.deltaTime);
     }
 
     void FixedUpdate()
