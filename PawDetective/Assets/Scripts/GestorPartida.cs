@@ -9,6 +9,9 @@ public class GestorPartida : MonoBehaviour
     // textos que se muestran en la pantalla
     public TextMeshProUGUI petsText;
     public TextMeshProUGUI timeText;
+    // mensajes de victoria y derrota
+    public GameObject winText;
+    public GameObject loseText;
     private bool tiempoAgotado = false;
     private int rescatadas = 0;
     private bool terminada = false;
@@ -61,6 +64,11 @@ public class GestorPartida : MonoBehaviour
         if (terminada) return;
 
         terminada = true;
+
+        // mostrar el mensaje de victoria
+        if (winText != null)
+            winText.SetActive(true);
+
         Debug.Log("¡Ganaste!");
     }
 
@@ -70,6 +78,11 @@ public class GestorPartida : MonoBehaviour
         if (terminada) return;
 
         terminada = true;
+
+        // mostrar el mensaje cuando se acaba el tiempo
+        if (loseText != null)
+            loseText.SetActive(true);
+
         Debug.Log("¡Perdiste! Se acabo el tiempo.");
         Invoke("Reiniciar", 1.5f);
     }
