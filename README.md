@@ -49,10 +49,10 @@ Assets: https://kenney.nl/assets
 
 Background Music
 
-Track: Bossa Nova Jazz
-Artist: HitsLab
-Source: Pixabay
-License: Pixabay Content License
+**Track:** Bossa Nova Jazz  
+**Artist:** HitsLab  
+**Source:** Pixabay
+**License:** Pixabay Content License
 
 https://pixabay.com/music/bossa-nova-bossa-nova-jazz-637865/
 
